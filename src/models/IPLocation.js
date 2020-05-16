@@ -32,4 +32,4 @@ const IPLocation = new mongoose.Schema(
   { timestamps: true },
 );
 
-export default mongoose.model('string', IPLocation);
+export default mongoose.model('IPLocation', IPLocation);

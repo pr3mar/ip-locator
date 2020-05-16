@@ -7,8 +7,10 @@
 import http from 'http';
 import debugLib from 'debug';
 import regeneratorRuntime from 'regenerator-runtime';
+import dotenv from 'dotenv';
 import app from '../app';
 
+dotenv.config();
 const debug = debugLib('ip-locator:server');
 
 /**
