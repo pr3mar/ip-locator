@@ -6,6 +6,7 @@
 
 import http from 'http';
 import debugLib from 'debug';
+import regeneratorRuntime from 'regenerator-runtime';
 import app from '../app';
 
 const debug = debugLib('ip-locator:server');
