@@ -1,6 +1,9 @@
 # IP Locator service
 
-This service helps you store the geolocation information of incoming HTTP requests.
+This service helps you store the geolocation information of incoming HTTP requests based on their IP addresses.
+It takes into account the `X-Forwarded-For` header as well.
+
+You can only access the service if you have an authorized token to do so.
 
 ## Setup
 
@@ -49,3 +52,20 @@ Set the `Authorization` header to:
 Bearer <your token>
 ```
 Otherwise you will not be able to access the content from those endpoints.
+
+
+## Access the ip-locator
+
+Once you have generated a token, you can access the `GET /api/status` endpoint.
+
+The endpoint does not take any parameters. What it does:
+ - extracts the invoker's IP address
+ - looks it up in the database
+    - if it doesn't exist, it gets geolocation data from a 3rd party service (https://ipapi.co/)
+    - if it does, returns the cached data
+
+## Heroku access
+
+You can access the demo code which is deployed on Heroku on the following base URL: https://tokenized-ip-locator.herokuapp.com/
+
+The code is automatically redeployed each time there is a commit on the `master` branch. 
